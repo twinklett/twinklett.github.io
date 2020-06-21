@@ -1,151 +1,244 @@
-# ma-jinyao.cn
+# Clean Blog Hexo
 
-耀 の 个人网站 | Mark の Personal Website
+![](http://www.codeblocq.com/img/hexo-theme-thumbnail/CleanBlog.png)
 
-``` yaml
+Hexo implementation of [Clean Blog](http://blackrockdigital.github.io/startbootstrap-clean-blog/index.html)
 
-# Hexo Configuration
-## Docs: https://hexo.io/docs/configuration.html
-## Source: https://github.com/hexojs/hexo/
+Clean blog is a full featured, responsive Hexo theme. [Demo here](http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/).
 
-# Site
-title: "耀 の 个人网站 | Mark の Personal Website"
-description: "耀の个人网站, 耀的个人网站, Mark の Personal Website, Mark's Personal Website, 耀的部落阁, 耀の部落阁, jinyaoMa, Mustom, Hexo"
-author: jinyaoMa ( 耀 / Mark )
-year: 2019
+## Features
 
-# URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://ma-jinyao.cn
-root: /
+- Disqus and Facebook comments
+- Google Analytics
+- Addthis
+- Cover image for posts and pages
+- Tags and Categories Support
+- Responsive Images
+- Image Gallery
+- Code syntax highlighting
 
-# Directory
-source_dir: source
-public_dir: docs # 方便使用Github Page
-tag_dir: tags
-archive_dir: archives
-category_dir: categories
-code_dir: code # markdown使用include_code标签
-skip_render:
-  - "code/*.*" # 排除code_dir
-  - "extension/**/*.html" # 排除extension
-  - "*.html" # 如果在在主目录source文件夹里放了搜索引擎验证的.html文件
-  - "CNAME" # 如果在在主目录source文件夹里放了CNAME文件
+## External libraries used
 
-# Writing
-new_post_name: :title.md # File name of new posts
-default_layout: post
-titlecase: false # Transform title into titlecase
-external_link:
-  enable: true # Open external links in new tab
-  field: site # Apply to the whole site
-  exclude: ""
-filename_case: 0
-render_drafts: false
-post_asset_folder: false
-relative_link: false
-future: true
-highlight:
-  enable: true
-  line_number: true
-  auto_detect: false
-  tab_replace: "  "
-  wrap: true
-  hljs: false
+- [Bootstrap](http://getbootstrap.com/css/)
+- [FeatherLight.js](http://noelboss.github.io/featherlight/) (Gallery)
+- [jQuery](https://jquery.com/)
 
-# Date / Time format
-## Hexo uses Moment.js to parse and display date
-## You can customize the date format as defined in
-## http://momentjs.com/docs/#/displaying/format/
-date_format: YYYY-MM-DD
-time_format: HH:mm:ss
-## Use post's date for updated date unless set in front-matter
-use_date_for_updated: false
-
-# Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-theme: mustom
-
-# Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  - type: baidu_url_submitter
-  - type: git
-    repo:
-
-all_minifier: true # 如果装了 hexo-all-minifier
-markdown: # 如果换了原装 hexo-renderer-marked, 用了 hexo-renderer-markdown-it
-  render:
-    html: true
-    xhtmlOut: false
-    breaks: true
-    linkify: true
-    typographer: true
-    quotes: '“”‘’'
-  plugins:
-    - markdown-it-abbr
-    - markdown-it-footnote
-    - markdown-it-ins
-    - markdown-it-sub
-    - markdown-it-sup
-  anchors:
-    level: 1
-    collisionSuffix: 'v'
-    permalink: true
-    permalinkClass: headerlink
-    permalinkSide: 'left'
-    permalinkSymbol: ''
-nofollow: # 如果装了 hexo-filter-nofollow
-  enable: true
-  field: post
-sitemap: # 如果装了 hexo-generator-sitemap
-  path: sitemap.xml
-  rel: true
-autoprefixer: # 如果装了 hexo-autoprefixer
-  exclude:
-    - "*.min.css"
-  overrideBrowserslist:
-    - "last 2 versions"
-babelify: # 如果装了 hexo-renderer-babelify + @babel/preset-env
-  presets:
-    - "@babel/preset-env"
-  sourceMaps: false
-mathjax: # 如果装了 hexo-filter-mathjax
-  tags: none # or 'ams' or 'all'
-  single_dollars: true # enable single dollar signs as in-line math delimiters
-  cjk_width: 0.9 # relative CJK char width
-  normal_width: 0.6 # relative normal (monospace) width
-
-ignore:
-  - "**/source/asset/js/common/*.js" # 如果装了 hexo-renderer-babelify
-  - "**/source/asset/js/part/*.js" # 如果装了 hexo-renderer-babelify
-  - "**/source/asset/js/plugin/!(L2Dwidget.0.min.js)" # 如果装了 hexo-renderer-babelify
-
-# 百度主动推送
-baidu_url_submit:
-  count: 1000 # 提交最新的一个链接
-  host: ma-jinyao.cn # 在百度站长平台中注册的域名
-  token: "" # 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
-  path: baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档里
-
-baidu_translate:
-  appid: ""
-  appkey: ""
-
-valine:
-  appid: ""
-  appkey: ""
-
-google_site_verification: ""
-baidu_site_verification: ""
-
-# clustrmaps访问监控，详情至：https://clustrmaps.com/
-clustrmaps:
-  enable: true
-  id: "clstr_globe" # clstr_globe / clustrmaps
-  src: "//cdn.clustrmaps.com/globe.js?d=..."
-
-# adScript: ''
+## Installation
 
 ```
+$ git clone https://github.com/klugjo/hexo-theme-clean-blog.git themes/clean-blog
+```
+
+Then update your blog's main `_config.yml` to set the theme to `clean-blog`:
+
+```
+# Extensions
+## Plugins: http://hexo.io/plugins/
+## Themes: http://hexo.io/themes/
+theme: clean-blog
+```
+
+## Configuration
+
+### Menu
+
+The menu is configured in the theme's `_config.yml`.
+
+```
+# Header
+menu:
+  Home: /
+  Archives: /archives
+  Github:
+    url: https://github.com/klugjo/hexo-theme-clean-blog
+    icon: github
+```
+
+The object key is the label and the value is the path, or you can use a icon (font awesome) like menu item.
+
+### Top Left Label
+
+The top left label is configured in the theme's `_config.yml`. When clicked it will lead to the Home Page.
+
+```
+# Title on top left of menu. Leave empty to use main blog title
+menu_title: Configurable Title
+```
+
+### Home Page cover image
+
+The Home Page cover is configured in the theme's `_config.yml`. It will be the same for all index type pages.
+
+```
+# URL of the Home page image
+index_cover: /img/home-bg.jpg
+```
+
+### Default post title
+
+The default post title (used when no title is specified) is configured in the theme's `_config.yml`.
+
+```
+# Default post title
+default_post_title: Untitled
+```
+
+### Comments
+
+The comments provider is specified in the theme's `_config.yml`. If you specify both a `disqus_shortname` and a `facebook.appid` there will be 2 sets of comment per post. So choose one.
+
+```
+# Comments. Choose one by filling up the information
+comments:
+  # Disqus comments
+  disqus_shortname: klugjotest
+  # Facebook comments
+  facebook:
+    appid: 123456789012345
+    comment_count: 5
+    comment_colorscheme: light
+```
+
+You can too hide the comment in the posts front-matter:
+
+```
+comment: false
+---
+```
+
+### Google Analytics
+
+The Google Analytics Tracking ID is configured in the theme's `_config.yml`.
+
+```
+# Google Analytics Tracking ID
+google_analytics:
+```
+
+### Addthis
+
+The Addthis ID is configured in the theme's `_config.yml`.
+
+```
+# Addthis ID
+addthis:
+```
+
+### Social Account
+
+Setup the links to your social pages in the theme's `_config.yml`. Links are in the footer.
+
+```
+# Social Accounts
+twitter_url:
+facebook_url:
+github_url: https://github.com/klugjo/hexo-theme-clean-blog
+linkedin_url:
+mailto:
+```
+
+### Author
+
+The post's author is specified in the posts front-matter:
+
+```
+author: Klug Jo
+---
+```
+
+### Post's Cover Image
+
+By default, posts will use the home page cover image. You can specify a custom cover in the front-matter:
+
+```
+title: Excerpts
+date: 2013-12-25 00:23:23
+tags: ["Excertps"]
+cover: /assets/contact-bg.jpg
+---
+```
+
+### Post's Share Cover Image
+
+You can specify a custom cover to share yours posts in social medias:
+
+```
+share_cover: /assets/contact-bg.jpg
+---
+```
+
+### Post's Excerpt
+
+This theme does not support traditional excerpts. To show excerpts on the index page, use `subtitle` in the front-matter:
+
+```
+title: Excerpts
+date: 2013-12-25 00:23:23
+tags: ["Excertps"]
+subtitle: Standard Excerpts are not supported in Clean Blog but you can use subtitles in the front matter to display text in the index.
+---
+
+```
+
+## Tags page.
+
+> Follow these steps to add a `tags` page that contains all the tags in your site.
+
+- Create a page named `tags`
+
+```
+$ hexo new page "tags"
+```
+
+- Edit the newly created page and set page type to `tags` in the front matter.
+
+```
+title: All tags
+type: "tags"
+```
+
+- Add `tags` to the menu in the theme `_config.yml`:
+
+```
+# Header
+menu:
+  Home: /
+  Archives: /archives
+  Tags: /tags
+```
+
+## Categories page.
+
+> Follow these steps to add a `categories` page that contains all the categories in your site.
+
+- Create a page named `categories`
+
+```
+$ hexo new page "categories"
+```
+
+- Edit the newly created page and set page type to `categories` in the front matter.
+
+```
+title: All categories
+type: "categories"
+```
+
+- Add `Categories` to the menu in the theme `_config.yml`:
+
+```
+# Header
+menu:
+  Home: /
+  Archives: /archives
+  Categories: /categories
+```
+
+
+## Creator
+
+This theme was created by [Blackrock Digital](https://github.com/BlackrockDigital) and adapted for Hexo by [Jonathan Klughertz](http://www.codeblocq.com/).
+
+## License
+
+MIT
