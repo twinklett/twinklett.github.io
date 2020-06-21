@@ -1,117 +1,21 @@
-# hexo-theme-mustom
+# ma-jinyao.cn
 
-看效果点这里：[ma-jinyao.cn](//ma-jinyao.cn)
-
-想用最新版的主题的话，可以把我的[整个网站](//github.com/jinyaoMa/ma-jinyao.cn)下载下来慢慢改
-
-更详细的使用指南：[Hexo主题Mustom使用指南](//ma-jinyao.cn/posts/49651/)
-
-如果想用 [ma-jinyao.cn](//ma-jinyao.cn) 里 菜单-其他 下 pages 的 parts，可以参考 [我的博客](https://github.com/jinyaoMa/ma-jinyao.cn) 主目录下 source 里的文件、Front-matter 和目录结构。
-
-_Hexo 主目录 \_config.yml 模版在页面底下_
-
-## 关于本主题
-
-- 主题只使用了 valine 评论
-- 主题 _config.yml 没有任何的开关，比如开关翻译功能、开关评论功能等等
-- 主题 _config.yml 里可以更换图片头像、链接、图标等等
-
-## 添加菜单项目（layout/page only）
-
-在主题 _config.yml 中，按格式修改 menus下的项目
+耀 の 个人网站 | Mark の Personal Website
 
 ``` yaml
-menus:
-  main: # 项目组
-    home: # 项目
-      url: / # 项目链接
-      icon: '<i class="fas fa-home fa-fw"></i>' # 项目图标
-    archive: # 项目
-      url: /archives/ # 项目链接
-      icon: '<i class="fas fa-archive fa-fw"></i>' # 项目图标
-    about: # 项目
-      url: /about/ # 项目链接
-      icon: '<i class="fas fa-user fa-fw"></i>' # 项目图标
-    links: # 新项目 <----------------------------------------------------
-      url: /links/  # 新项目链接 <----------------------------------------
-      icon: '<i class="fas fa-link fa-fw"></i>' # 新项目图标 <------------
-```
 
-接下来，在主题 source/asset/lang 文件夹中的 .yml 语言文件修改 menus 下的项目
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
 
-``` yaml
-menus:
-  main: # 对应_config.yml中的项目组
-    caption: 本站 # 项目组名称
-    items: # 对应_config.yml中的项目
-      home: 首页 # 项目名称
-      archive: 归档 # 项目名称
-      about: 关于 # 项目名称
-      links: 友链 # 新项目名称 <-----------------------------------------
-# ...
-pather:
-  links: 友链 # 新项目名称 <-----------------------------------------
-```
-
-使用这个 scaffold 生成新 page
-
-``` yaml
----
-title: {{ title }}
-layout: page
-name: {{ title }} # this name should be the same as folder name
-parts: 
-  - page
-  - # custom parts
----
-```
-
-``` bash
-hexo new page "新页面名称"
-```
-
-如果想自定义新 parts 的话，请根据 source/asset 里的文件目录结构自行摸索
-
-添加新 parts 之后，需要在 layout/_partial/frame.ejs 中插入对应 part 名称的标签
-
-## 更多
-
-修改主题 _config.yml
-``` yaml
-meting: # 对应meting.js设置
-  server: netease
-  type: playlist
-  id: "970057720"
-  theme: "#ff3300"
-  list_height: "297px" # 改这个之后还要跑source/asset/css/_common/dimension.styl里改$audioplayer_list_height
-  
-# 下面这两个可以参考 https://github.com/lavas-project/hexo-pwa
-manifest:
-serviceWorker:
-
-# 改post中二维码
-post:
-  qrcode:
-    qq: /asset/img/qq.png
-    wechat: /asset/img/wechat.png
-
-# 增加皮肤可以自行摸索（css中没有怎么分色，还是黑白好看，夜间模式更好看。。。）
-skin:
-  default: "#000000"
-  colorful: "linear-gradient(to bottom right,#ff3333 ,#66cc66 , #0099cc)"
-  newSkin: # 需要对应source/asset/css/_common/color.styl中的class
-```
-
-## 主目录 _config.yml 例子
-
-``` yaml
 # Site
 title: "耀 の 个人网站 | Mark の Personal Website"
-description: "耀 の 个人网站 | Mark の Personal Website"
+description: "耀の个人网站, 耀的个人网站, Mark の Personal Website, Mark's Personal Website, 耀的部落阁, 耀の部落阁, jinyaoMa, Mustom, Hexo"
 author: jinyaoMa ( 耀 / Mark )
 year: 2019
 
 # URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://ma-jinyao.cn
 root: /
 
@@ -150,6 +54,9 @@ highlight:
   hljs: false
 
 # Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## Use post's date for updated date unless set in front-matter
@@ -168,6 +75,27 @@ deploy:
     repo:
 
 all_minifier: true # 如果装了 hexo-all-minifier
+markdown: # 如果换了原装 hexo-renderer-marked, 用了 hexo-renderer-markdown-it
+  render:
+    html: true
+    xhtmlOut: false
+    breaks: true
+    linkify: true
+    typographer: true
+    quotes: '“”‘’'
+  plugins:
+    - markdown-it-abbr
+    - markdown-it-footnote
+    - markdown-it-ins
+    - markdown-it-sub
+    - markdown-it-sup
+  anchors:
+    level: 1
+    collisionSuffix: 'v'
+    permalink: true
+    permalinkClass: headerlink
+    permalinkSide: 'left'
+    permalinkSymbol: ''
 nofollow: # 如果装了 hexo-filter-nofollow
   enable: true
   field: post
@@ -182,12 +110,17 @@ autoprefixer: # 如果装了 hexo-autoprefixer
 babelify: # 如果装了 hexo-renderer-babelify + @babel/preset-env
   presets:
     - "@babel/preset-env"
-  sourceMaps: true
+  sourceMaps: false
+mathjax: # 如果装了 hexo-filter-mathjax
+  tags: none # or 'ams' or 'all'
+  single_dollars: true # enable single dollar signs as in-line math delimiters
+  cjk_width: 0.9 # relative CJK char width
+  normal_width: 0.6 # relative normal (monospace) width
 
 ignore:
-  #- "**/source/asset/js/common/*.js" # 如果装了 hexo-renderer-babelify
-  #- "**/source/asset/js/part/*.js" # 如果装了 hexo-renderer-babelify
-  #- "**/source/asset/js/plugin/!(L2Dwidget.0.min.js)" # 如果装了 hexo-renderer-babelify
+  - "**/source/asset/js/common/*.js" # 如果装了 hexo-renderer-babelify
+  - "**/source/asset/js/part/*.js" # 如果装了 hexo-renderer-babelify
+  - "**/source/asset/js/plugin/!(L2Dwidget.0.min.js)" # 如果装了 hexo-renderer-babelify
 
 # 百度主动推送
 baidu_url_submit:
@@ -196,18 +129,23 @@ baidu_url_submit:
   token: "" # 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
   path: baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档里
 
-# 百度翻译API
 baidu_translate:
   appid: ""
   appkey: ""
 
-# 主题用的Valine评论
 valine:
   appid: ""
   appkey: ""
 
-# 搜索引擎验证
 google_site_verification: ""
 baidu_site_verification: ""
+
+# clustrmaps访问监控，详情至：https://clustrmaps.com/
+clustrmaps:
+  enable: true
+  id: "clstr_globe" # clstr_globe / clustrmaps
+  src: "//cdn.clustrmaps.com/globe.js?d=..."
+
+# adScript: ''
 
 ```
