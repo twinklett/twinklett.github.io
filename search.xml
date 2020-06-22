@@ -155,9 +155,37 @@
 <p>作者：高鸿祥<br>链接：<a href="https://www.jianshu.com/p/191d1e21f7ed" target="_blank" rel="noopener">https://www.jianshu.com/p/191d1e21f7ed</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 ]]></content>
       <tags>
-        <tag>study</tag>
-        <tag>write</tag>
-        <tag>markdown</tag>
+        <tag>学习笔记</tag>
+        <tag>计算机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>换设备如何更新hexo博客</title>
+    <url>/2020/06/22/%E6%8D%A2%E8%AE%BE%E5%A4%87%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0hexo%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<blockquote>
+<p>今天一直在纠结要是有一天换电脑了怎么办，那我的博客岂不是不能够更新了。所以上网搜集了许多资料，发现看不懂，于是用了这个办法。</p>
+</blockquote>
+<h1 id="建立一个新仓库"><a href="#建立一个新仓库" class="headerlink" title="建立一个新仓库"></a>建立一个新仓库</h1><p>毕竟不是大佬，用的也是github客户端，所以建立了一个新的仓库用来存储hexo源码。</p>
+<p>给新仓库取名hexo，将文件克隆到本地，然后将所有的源码都复制到要与hexo仓库同步的文件夹里。</p>
+<p>（以后如果涉及到修改配置文件建议把主题里面的cofig和网站目录的config都备份一下，然后再进行修改。）</p>
+<p>然后把所有的文件都上传到仓库中，如果以后要上传文章或者修改文件，都要重新上传一下。</p>
+<h1 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h1><p>如果爷有幸换了新电脑，那么具体的做法如下</p>
+<p><strong>1.</strong>网站仓库和源码仓库的文件都同步下来。</p>
+<p><strong>2.</strong>网站仓库的源码是不需要改动的，他只是一个任何时候都受hexo摆布的小受罢了（bushi</p>
+<p><strong>3.</strong>安装git npm node.js</p>
+<p><strong>4.</strong>来到hexo仓库文件夹里安装hexo</p>
+<p><strong>5.</strong>接下来就是你唯一会的东西了</p>
+<pre><code class="bash">hexo clean
+hexo g
+hexo s</code></pre>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>计算机</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>学习</tag>
       </tags>
   </entry>
   <entry>
